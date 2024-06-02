@@ -23,6 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Get dependencies
-        run: go mpd tidy
+        run: go mod tidy
       - name: Build Binary
         run: go build -v ./... -o http_server
