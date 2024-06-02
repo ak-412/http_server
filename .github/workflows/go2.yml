@@ -25,4 +25,4 @@ jobs:
       - name: Get dependencies
         run: go mod tidy
       - name: Build Binary
-        run: go build -v ./... -o http_server
+        run: go build -o http_server -v ./...
