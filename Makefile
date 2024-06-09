@@ -1,6 +1,6 @@
 ARCH=amd64
 OS=linux
-SERVER_BINARY_NAME?=http-server-$(OS)
+SERVER_BINARY_NAME?=http-server
 APP_VERSION?=0.0.1
 
 build:
@@ -8,7 +8,6 @@ build:
 
 image:
 	docker build --platform linux/$(ARCH) -t ${SERVER_BINARY_NAME}:$(APP_VERSION) -f ./Dockerfile \
-    --build-arg "COMMIT=$(COMMIT)" --build-arg "APP_VERSION=$(APP_VERSION)" --build-arg "DATE=$(DATE)" \
-    --build-arg "APP_NAME=$(SERVER_BINARY_NAME)" .
+    --build-arg "COMMIT=$(COMMIT)" --build-arg "APP_VERSION=$(APP_VERSION)" --build-arg "DATE=$(DATE)" .
 clean:
 	rm -rf http-server-*
