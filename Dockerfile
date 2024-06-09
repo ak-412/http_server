@@ -1,6 +1,11 @@
 FROM alpine:3.18
+ARG APP_VERSION=0.0.0
+ARG DATE=01.01.01
+ARG COMMIT=000
+ARG APP_NAME
+ENV APP=${APP_NAME}
 RUN mkdir /app
-COPY http_server /app/http_server
+COPY ${APP_NAME} /app/
 EXPOSE 8081
-ENTRYPOINT ["/app/http_server"]
+ENTRYPOINT /app/$APP
 CMD ["-m=Hey"]
