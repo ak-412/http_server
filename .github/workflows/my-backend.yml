@@ -6,7 +6,7 @@ name: my-backend
 on: workflow_dispatch
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: myrunner
     steps:
     - uses: actions/checkout@v4
     - name: Get list file
@@ -21,7 +21,7 @@ jobs:
       run: go test -v ./...
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: myrunner
     steps:
       - uses: actions/checkout@v4
       - name: Get dependencies
@@ -35,7 +35,7 @@ jobs:
           path: ./http-server
   build-container:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: myrunner
     steps:
       - name: load artifact
         uses: actions/download-artifact@v3
