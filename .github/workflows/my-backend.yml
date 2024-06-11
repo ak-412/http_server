@@ -31,7 +31,7 @@ jobs:
       - name: Get dependencies
         run: go mod tidy
       - name: Build Binary
-        run: go build -o http-server -v cmd/main.go
+        run: CGO_ENABLED=0 go build -o http-server -v cmd/main.go
       - name: save artifact
         uses: actions/upload-artifact@v3
         with:
